@@ -1,0 +1,46 @@
+{
+    "1": [
+        {
+            "name": "rotation",
+            "params": [
+                45
+            ]
+        },
+         {
+            "name": "resize",
+            "params": [
+                50,
+                50
+            ]
+        }
+    ],
+    "2": [
+        {
+            "name": "brightness",
+            "params": [
+                2.5
+            ]
+        },
+        {
+            "name": "contrast",
+            "params": [
+                1
+            ]
+        }
+    ],
+    "3": [
+        {
+            "name": "contrast",
+            "params": [
+                0.5
+            ]
+        }
+    ],    "4": [
+        {
+            "name": "tint",
+            "params": [
+                5
+            ]
+        }
+    ]
+}
