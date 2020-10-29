@@ -1,0 +1,35 @@
+{
+    "1": [
+        {
+            "name": "contrast_manual",
+            "params": [
+                3
+            ]
+        }
+
+    ],
+    "2": [
+        {
+            "name": "brightness_manual",
+            "params": [
+                2.5
+            ]
+        }
+    ],
+    "3": [
+        {
+            "name": "flip",
+            "params": [
+                1
+            ]
+        }
+    ],
+    "4": [
+        {
+            "name": "averageBlurring",
+            "params": [
+                5
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "1": [
+        {
+            "name": "rotation",
+            "params": [
+                55
+            ]
+        }
+    ],
+    "2": [
+        {
+            "name": "contrast",
+            "params": [
+                20
+            ]
+        }
+    ],
+    "3": [
+          {
+            "name": "tint",
+            "params": [
+                5
+            ]
+        }
+
+    ],
+
+    "4": [
+        {
+            "name": "tint",
+            "params": [
+                9
+            ]
+        },
+        {
+            "name": "resize",
+            "params": [
+                500,
+                300
+            ]
+        }
+    ]
+}

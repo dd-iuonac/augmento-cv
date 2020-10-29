@@ -1,28 +1,29 @@
-import os
 import tkinter
 from tkinter import filedialog
 
 import cv2
 
 from src.algorithms import algorithms
-from src.utils import read_algorithms
+from src.utils import read_algorithms, read_images, execute_algorithms
 
 root = tkinter.Tk()
 
 if __name__ == '__main__':
-    root.directory = filedialog.askdirectory(initialdir='.')
+    root.filename = filedialog.askopenfilename(initialdir="./configs/", title="Select Config file",
+                                               filetypes=(("Json", "*.json"), ("all files", "*.*")))
+    library = read_algorithms(root.filename)
+
+    root.directory = filedialog.askdirectory(initialdir='.', title="Select Input folder")
+    images, files = read_images(root.directory)
+
+    root.directory = filedialog.askdirectory(initialdir='.', title="Select Output folder")
+
     counter = 0
-
-    library = read_algorithms()
-
-    for file in os.listdir(root.directory):
-        img = cv2.imread(f"{root.directory}/{file}")
-        for k in library.keys():
-            image = img.copy()
-            algorithms_list = library[k]
+    for k in library.keys():
+        algorithms_config_list = library[k]
+        for img, file in zip(images, files):
             counter += 1
-            name = ""
-            for i, algorithm in enumerate(algorithms_list):
-                image = algorithms[algorithm["name"]](image, *algorithm["params"])
-                name = name + algorithm["name"] + "_"
-            cv2.imwrite(f"{os.getcwd()}/test_aug/{file.split('.')[0]}_{name[:-1]}_{counter}.jpg", image)
+            image, name = execute_algorithms(img, algorithms, algorithms_config_list)
+            new_file = f"{root.directory}/{file.split('.')[0]}_{name[:-1]}_{counter}.jpg"
+            cv2.imwrite(new_file, image)
+            print(f"SAVED: {new_file}")
